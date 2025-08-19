@@ -1,4 +1,46 @@
-<!doctype html>
+a<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Random Card Trick</title>
+<style>
+  :root { --accent:#BE5F93; }
+  body { font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial; margin:0; padding:20px; color:#111; background:#f7f7f7; }
+  .bar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  button { background:var(--accent); color:#fff; border:0; border-radius:12px; padding:10px 14px; font-weight:700; cursor:pointer; box-shadow:0 2px 10px rgba(190,95,147,.35); }
+  #view { margin-top:16px; background:#fff; border-radius:16px; box-shadow:0 6px 24px rgba(0,0,0,.08); padding:18px; }
+  h2 { margin:0 0 6px 0; font-size:22px; }
+  .meta { color:#666; font-size:13px; }
+  pre { white-space:pre-wrap; margin-top:10px; font-size:15px; }
+</style>
+
+<div class="bar">
+  <button id="go">🎲 New Trick</button>
+</div>
+
+<div id="view">
+  <h2 id="title">Random Card Trick</h2>
+  <div class="meta" id="meta"></div>
+  <pre id="text"></pre>
+</div>
+
+<script>
+let DATA=[];
+async function boot(){
+  const res = await fetch('tricks.json');
+  DATA = await res.json();
+  showRandom(); // always show one on load
+}
+function showRandom(){
+  if(!DATA.length) return;
+  const t = DATA[Math.floor(Math.random()*DATA.length)];
+  document.getElementById('title').textContent = t.title;
+  const pr = t.page_start===t.page_end ? `p. ${t.page_start}` : `pp. ${t.page_start}–${t.page_end}`;
+  document.getElementById('meta').textContent = pr;
+  document.getElementById('text').textContent = t.text;
+}
+document.getElementById('go').addEventListener('click', showRandom);
+boot();
+</script><!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Random Card Trick</title>
