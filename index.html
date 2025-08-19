@@ -1,4 +1,62 @@
-a<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Card Trick</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f6f6f6;
+      padding: 2rem;
+    }
+    button {
+      background: #be5f93;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    button:hover {
+      background: #a64d7b;
+    }
+    label {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    #trick-container {
+      background: white;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <button id="new-trick">🎲 New Trick</button>
+  <label>
+    <input type="checkbox" id="show-on-load" checked>
+    show one on load
+  </label>
+
+  <div id="trick-container">
+    <h2>Random Card Trick</h2>
+    <p>Click the button to see a trick!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>a<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Random Card Trick</title>
