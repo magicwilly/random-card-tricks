@@ -1,8 +1,8 @@
 # Editorial review in progress
 
-60 of the 112 previously flagged sections have received editorial review. 46 resolved sections produced 55 accepted entries and added context to an existing entry; six are reference material; three continuations were merged; five remain unpublished for source-method problems. There are 383 active entries and 52 sections awaiting editorial review.
+72 of the 112 previously flagged sections have received editorial review. 57 resolved sections produced 69 accepted entries and added context to an existing entry; six are reference material; three continuations were merged; six remain unpublished for source-method problems. There are 397 active entries and 40 sections awaiting editorial review.
 
-The fifth batch restored Svengali, Mene-Tekel and stripper-pack dependencies. Six Mene-Tekel variations were separated from their equipment introduction; Card and Number and multiple-selection controls received card-order checks; the stripper-pack Kings/Aces typo was corrected against the alternate edition. Physical handling methods are not claimed to have been performance-tested. Detailed unresolved source passages remain local.
+The sixth batch recovered titles, split merged routines, supplied wax and reversal dependencies, verified the repeated twenty-five-card arrangement in Zen’s Card Miracle, and checked round-robin placement of the Limit Four Ace prepared cards. Physical handling methods are not claimed to have been performance-tested. Detailed unresolved source passages remain local.
 
 # Initial automated-pass snapshot (before editorial review)
 
