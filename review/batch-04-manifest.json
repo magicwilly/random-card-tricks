@@ -1,0 +1,28 @@
+{
+  "batch": "04",
+  "original_indices_zero_based": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    52,
+    54,
+    55
+  ],
+  "input_count": 12,
+  "ready_count": 13,
+  "held_sections": 1,
+  "raw_sha256": "3d7a1c1ffff614a6e0f73e067a764f5ea56d8ef9ebc59ed2b7700ba14d54283f",
+  "reference": "Supplied reference-01 PDF; Hugard Follow Me heading also checked in reference-02.",
+  "repairs": [
+    "Restore missing title Follow Me and separate author Jean Hugard.",
+    "Split A Card Sympathy and Indetecto into their own entries.",
+    "Restore missing 2 in Tone Control from supplied reference-01.",
+    "Remove trailing chapter heading and C. T. Jordan footnote marker."
+  ]
+}

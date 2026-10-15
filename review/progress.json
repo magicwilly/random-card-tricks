@@ -1,8 +1,8 @@
 {
   "original_records": 352,
-  "reviewed_records": 36,
-  "pending_records": 316,
-  "active_tricks": 42,
+  "reviewed_records": 48,
+  "pending_records": 304,
+  "active_tricks": 55,
   "entries": [
     {
       "index": 0,
@@ -259,56 +259,56 @@
     {
       "index": 42,
       "id": "coincidence-again",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 43,
       "id": "sympathetic-sympathy",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 44,
       "id": "synthetic-sympathy",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 45,
       "id": "backs-up",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "held"
     },
     {
       "index": 46,
       "id": "mental-coincidence",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 47,
       "id": "another-marvelous-coincidence",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 48,
       "id": "paradox-of-pairs",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 49,
       "id": "jean-hugard",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 50,
       "id": "phenomenal-thought-ca-rds",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 51,
@@ -319,8 +319,8 @@
     {
       "index": 52,
       "id": "a-count-down-mystery",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 53,
@@ -331,14 +331,14 @@
     {
       "index": 54,
       "id": "tone-control",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 55,
       "id": "infallible-detection",
-      "batch": null,
-      "status": "pending"
+      "batch": "04",
+      "status": "reviewed"
     },
     {
       "index": 56,
