@@ -1,0 +1,118 @@
+{
+  "batch": "02",
+  "original_indices_zero_based": [
+    4,
+    5,
+    6,
+    7,
+    10,
+    11,
+    14,
+    15,
+    16,
+    20,
+    21,
+    22
+  ],
+  "input_count": 12,
+  "ready_count": 18,
+  "held_sections": 1,
+  "raw_sha256": "3d7a1c1ffff614a6e0f73e067a764f5ea56d8ef9ebc59ed2b7700ba14d54283f",
+  "entries": [
+    {
+      "index": 4,
+      "id": "al-baker",
+      "outputs": [
+        "twin-souls",
+        "the-magic-breath"
+      ]
+    },
+    {
+      "index": 5,
+      "id": "gibson",
+      "outputs": [
+        "the-sagacious-joker-no-1",
+        "the-sagacious-joker-no-2",
+        "the-sagacious-joker-no-3",
+        "the-sagacious-joker-no-4"
+      ]
+    },
+    {
+      "index": 6,
+      "id": "elliott",
+      "outputs": [
+        "the-trio",
+        "cards-of-chance"
+      ]
+    },
+    {
+      "index": 7,
+      "id": "farelli",
+      "outputs": [
+        "push"
+      ]
+    },
+    {
+      "index": 10,
+      "id": "ladson-butler",
+      "outputs": [
+        "the-whispering-queen"
+      ]
+    },
+    {
+      "index": 11,
+      "id": "the-card-doctor",
+      "outputs": [
+        "the-card-doctor"
+      ]
+    },
+    {
+      "index": 14,
+      "id": "leroy",
+      "outputs": [
+        "self-control"
+      ]
+    },
+    {
+      "index": 15,
+      "id": "vernon",
+      "outputs": [
+        "the-five-card-mental-force",
+        "just-think-mental-mystery"
+      ]
+    },
+    {
+      "index": 16,
+      "id": "lubrent",
+      "outputs": [
+        "matching-the-aces"
+      ]
+    },
+    {
+      "index": 20,
+      "id": "lu-brent",
+      "outputs": [
+        "u-find-your-card"
+      ]
+    },
+    {
+      "index": 21,
+      "id": "the-card-and-crystal-ball",
+      "outputs": [
+        "the-card-and-crystal-ball"
+      ]
+    },
+    {
+      "index": 22,
+      "id": "findley",
+      "outputs": [
+        "the-secret-mathematician"
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.learnmagictricks.org/ebook/EncyclopediaofCardTricks.pdf",
+    "https://www.lybrary.com/encyclopedia-of-card-tricks-p-38.html",
+    "https://magicref.net/magicbooks/books/hugardjeanencyclopedia.htm"
+  ]
+}
