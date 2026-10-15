@@ -1,3 +1,11 @@
 node_modules/
 .wrangler/
 .DS_Store
+
+# Local review material not approved for public upload
+review/batch-0[5-9]-*.json
+review/batch-[12][0-9]-*.json
+review/batch-30-*.json
+review/unresolved-index.json
+review/progress-detailed.json
+scripts/source-cleanup/
