@@ -11,3 +11,5 @@ Favorites are stored only in this browser. Random deals do not repeat within a d
 Batch 02 reviews 12 original records and supplies 18 cleaned tricks. One compound section is held for method verification. See `review/` for provenance, excluded text, and the batch manifest. Source PDF ranges remain inherited ranges, not verified pagination for the split tricks. Unknown originators display “Source unknown”; the book source remains identified.
 
 Batch 03 reviews another 12 records, adds 12 tricks, and holds A Strange Coincidence for a missing deck-exchange instruction. Supplied PDF reference-01 confirms titles and page ranges. Dependent variations include an expandable copy of the base routine. The three supplied PDFs were indexed locally; the full PDFs are not added to the public site or repository.
+
+Live domain: https://randomcardtricks.com (registered with Cloudflare for one year on 2026-10-15; automatic renewal disabled). www and HTTP redirect to canonical HTTPS apex. All Sleight School mentions link to https://sleightschool.com. Worker source handles redirects before serving static assets.
