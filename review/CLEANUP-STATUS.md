@@ -1,8 +1,8 @@
 # Editorial review in progress
 
-36 of the 112 previously flagged sections have received editorial review. 28 resolved sections produced 32 accepted entries; four are reference material; one continuation was merged; three remain unpublished for source-method problems. There are 360 activeentries and 76 sections awaiting editorial review.
+48 of the 112 previously flagged sections have received editorial review. 35 resolved sections produced 39 accepted entries and added context to an existing entry; five are reference material; three continuations were merged; five remain unpublished for source-method problems. There are 367 active entries and 64 sections awaiting editorial review.
 
-The third batch restored the 52CardTrick table, rejoined Ne Plus Ultra, corrected OCR in A Moving Revelation, and supplied missing handling context. Mathematical and card-order checks cover all 52 targets/52 positions for the 52CardTrick, all 121 row rotations/moves in A Moving Revelation, and all 77 allowednumberpairs in the clarified Weirdo handling. Historical methods are not claimed to be performance-tested. Detailed unresolved source passages remain local.
+The fourth batch restored the complete Perfect Card Divination groups, supplied memorized-stack context to three Albright routines, verified the Cards and Pockets arrangement, restored the Diamond Jack sequence, and separated Simple Effects from Switching Packs. Source-method contradictions remain unpublished. Historical methods are not claimed to be performance-tested. Detailed unresolved source passages remain local.
 
 # Initial automated-pass snapshot (before editorial review)
 
