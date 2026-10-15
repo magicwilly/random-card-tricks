@@ -1,8 +1,8 @@
 # Editorial review in progress
 
-48 of the 112 previously flagged sections have received editorial review. 35 resolved sections produced 39 accepted entries and added context to an existing entry; five are reference material; three continuations were merged; five remain unpublished for source-method problems. There are 367 active entries and 64 sections awaiting editorial review.
+60 of the 112 previously flagged sections have received editorial review. 46 resolved sections produced 55 accepted entries and added context to an existing entry; six are reference material; three continuations were merged; five remain unpublished for source-method problems. There are 383 active entries and 52 sections awaiting editorial review.
 
-The fourth batch restored the complete Perfect Card Divination groups, supplied memorized-stack context to three Albright routines, verified the Cards and Pockets arrangement, restored the Diamond Jack sequence, and separated Simple Effects from Switching Packs. Source-method contradictions remain unpublished. Historical methods are not claimed to be performance-tested. Detailed unresolved source passages remain local.
+The fifth batch restored Svengali, Mene-Tekel and stripper-pack dependencies. Six Mene-Tekel variations were separated from their equipment introduction; Card and Number and multiple-selection controls received card-order checks; the stripper-pack Kings/Aces typo was corrected against the alternate edition. Physical handling methods are not claimed to have been performance-tested. Detailed unresolved source passages remain local.
 
 # Initial automated-pass snapshot (before editorial review)
 
