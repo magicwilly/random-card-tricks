@@ -2,15 +2,16 @@
   "original_records": 352,
   "reviewed_records": 48,
   "pending_records": 0,
-  "active_tricks": 350,
+  "active_tricks": 360,
   "source_processed_records": 352,
-  "held_sections": 91,
+  "held_sections": 79,
   "excluded_front_matter": 4,
   "manual_review_records": 48,
-  "review_note": "Initial pass covered all 352 records. Human editorial review has now examined 24 of the 112 flagged sections: 18 resolved into accepted routines, three classified as reference material, and three retained for source-method problems. 88 flagged sections remain in the assistant review queue.",
+  "review_note": "All 352 originalrecords have an initial disposition. Editorial review has examined 36 of 112 flaggedsections:28 resolved sections produced 32 acceptedentries, four are reference material, one continuation was merged, and three source-method problems remain held.76 flaggedsections await editorial review. These counts describe sections, not original records.",
   "details": "Record-level audit and unresolved source passages are retained locally.",
-  "held_sections_editorially_reviewed": 24,
-  "held_sections_awaiting_editorial_review": 88,
+  "held_sections_editorially_reviewed": 36,
+  "held_sections_awaiting_editorial_review": 76,
   "reviewed_source_problems": 3,
-  "resolved_as_reference_material": 3
+  "resolved_as_reference_material": 4,
+  "merged_continuation_sections": 1
 }

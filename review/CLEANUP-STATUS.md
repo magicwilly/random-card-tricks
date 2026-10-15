@@ -1,8 +1,8 @@
 # Editorial review in progress
 
-24 of the 112 previously flagged sections have now received editorial review against the supplied PDF editions. 18 sections were resolved into 22 accepted entries; three are reference material; three have unresolved source-method problems. The active collection now contains 350 entries. 88 flagged sections still await editorial review.
+36 of the 112 previously flagged sections have received editorial review. 28 resolved sections produced 32 accepted entries; four are reference material; one continuation was merged; three remain unpublished for source-method problems. There are 360 activeentries and 76 sections awaiting editorial review.
 
-Historical instructions are not claimed to have been performance-tested. Arithmetic was checked for the repaired Abbott layout, Gwynne spelling endpoints and the restricted Demon detection range. Detailed review notes remain local.
+The third batch restored the 52CardTrick table, rejoined Ne Plus Ultra, corrected OCR in A Moving Revelation, and supplied missing handling context. Mathematical and card-order checks cover all 52 targets/52 positions for the 52CardTrick, all 121 row rotations/moves in A Moving Revelation, and all 77 allowednumberpairs in the clarified Weirdo handling. Historical methods are not claimed to be performance-tested. Detailed unresolved source passages remain local.
 
 # Initial automated-pass snapshot (before editorial review)
 
