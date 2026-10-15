@@ -1,4 +1,10 @@
-# Collection cleanup: initial pass complete
+# Editorial review in progress
+
+24 of the 112 previously flagged sections have now received editorial review against the supplied PDF editions. 18 sections were resolved into 22 accepted entries; three are reference material; three have unresolved source-method problems. The active collection now contains 350 entries. 88 flagged sections still await editorial review.
+
+Historical instructions are not claimed to have been performance-tested. Arithmetic was checked for the repaired Abbott layout, Gwynne spelling endpoints and the restricted Demon detection range. Detailed review notes remain local.
+
+# Initial automated-pass snapshot (before editorial review)
 
 All 352 original records are accounted for. The site serves 328 separate entries. The final 304 records were processed in batches of 12, with a final batch of four.
 

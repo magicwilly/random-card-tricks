@@ -30,7 +30,7 @@ function render() {
  const t = current(); if(!t) return;
  $('reader').hidden=false; $('title').textContent=t.title;
  $('credit').textContent=t.author ? 'CREDITED TO '+t.author.toUpperCase() : (t.review_batch ? 'ORIGINATOR: SOURCE UNKNOWN' : 'A LITTLE SOMETHING FROM THE ARCHIVE');
- $('pages').textContent='PDF '+(t.page_start===t.page_end?'page '+t.page_start:'pages '+t.page_start+'–'+t.page_end);
+ $('pages').textContent=Number.isInteger(t.page_start)&&Number.isInteger(t.page_end)?'PDF '+(t.page_start===t.page_end?'page '+t.page_start:'pages '+t.page_start+'–'+t.page_end):'Supplied PDF edition';
  $('deal-number').textContent='ONE THING LEADS TO ANOTHER';
  $('text').replaceChildren(...t.text.split(/\n\n/).filter(Boolean).map(s=>{const p=document.createElement('p');p.textContent=s;return p;}));
  const priorContext=document.getElementById('routine-context');if(priorContext)priorContext.remove();if(t.context_text){const details=document.createElement('details');details.id='routine-context';details.className='routine-context';const summary=document.createElement('summary');summary.textContent=t.context_title||'Read the base routine';details.append(summary);for(const block of t.context_text.split(/\n\n/)){const para=document.createElement('p');para.textContent=block;details.append(para);}$('text').after(details);}
