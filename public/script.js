@@ -33,6 +33,7 @@ function render() {
  $('pages').textContent='PDF '+(t.page_start===t.page_end?'page '+t.page_start:'pages '+t.page_start+'–'+t.page_end);
  $('deal-number').textContent='ONE THING LEADS TO ANOTHER';
  $('text').replaceChildren(...t.text.split(/\n\n/).filter(Boolean).map(s=>{const p=document.createElement('p');p.textContent=s;return p;}));
+ const priorContext=document.getElementById('routine-context');if(priorContext)priorContext.remove();if(t.context_text){const details=document.createElement('details');details.id='routine-context';details.className='routine-context';const summary=document.createElement('summary');summary.textContent=t.context_title||'Read the base routine';details.append(summary);for(const block of t.context_text.split(/\n\n/)){const para=document.createElement('p');para.textContent=block;details.append(para);}$('text').after(details);}
  const priorNote=document.getElementById('editor-note');if(priorNote)priorNote.remove();if(t.editor_note){const note=document.createElement('p');note.id='editor-note';note.className='editor-note';note.textContent=t.editor_note;$('text').after(note);}
  $('back').disabled=cursor<1; $('prompt').hidden=true; updateKeepers();
  $('deal').innerHTML='Deal me another <span aria-hidden="true">↗</span>';

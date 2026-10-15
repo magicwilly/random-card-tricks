@@ -1,8 +1,8 @@
 {
   "original_records": 352,
-  "reviewed_records": 24,
-  "pending_records": 328,
-  "active_tricks": 30,
+  "reviewed_records": 36,
+  "pending_records": 316,
+  "active_tricks": 42,
   "entries": [
     {
       "index": 0,
@@ -145,14 +145,14 @@
     {
       "index": 23,
       "id": "larsen",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 24,
       "id": "milton",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 25,
@@ -187,20 +187,20 @@
     {
       "index": 30,
       "id": "a-peculiar-coincidence",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 31,
       "id": "follow-me",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 32,
       "id": "identical-thought",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 33,
@@ -211,32 +211,32 @@
     {
       "index": 34,
       "id": "a-close-work-discovery",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 35,
       "id": "a-follow-up-effect",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 36,
       "id": "loyds-dr-jekyll-mr-hyde",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 37,
       "id": "a-variation-of-the-above",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 38,
       "id": "another-do-as-i-do",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 39,
@@ -247,14 +247,14 @@
     {
       "index": 40,
       "id": "domination-of-thought",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "reviewed"
     },
     {
       "index": 41,
       "id": "a-strange-coincidence",
-      "batch": null,
-      "status": "pending"
+      "batch": "03",
+      "status": "held"
     },
     {
       "index": 42,
