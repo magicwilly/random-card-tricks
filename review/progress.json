@@ -1,0 +1,17 @@
+{
+  "original_records": 352,
+  "reviewed_records": 48,
+  "pending_records": 0,
+  "active_tricks": 397,
+  "source_processed_records": 352,
+  "held_sections": 46,
+  "excluded_front_matter": 4,
+  "manual_review_records": 48,
+  "review_note": "All 352 original records have an initial disposition. Editorial review has examined 72 of 112 flagged sections: 57 resolved sections produced 69 accepted entries and added context to an existing entry; six are reference material; three continuations were merged; six source-method problems remain unpublished. 40 flagged sections await editorial review. These counts describe sections, not original records.",
+  "details": "Record-level audit and unresolved source passages are retained locally.",
+  "held_sections_editorially_reviewed": 72,
+  "held_sections_awaiting_editorial_review": 40,
+  "reviewed_source_problems": 6,
+  "resolved_as_reference_material": 6,
+  "merged_continuation_sections": 3
+}

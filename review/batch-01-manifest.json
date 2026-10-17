@@ -1,0 +1,19 @@
+{
+  "batch": "01",
+  "original_indices_zero_based": [
+    8,
+    9,
+    12,
+    13,
+    17,
+    18,
+    19,
+    33,
+    39,
+    51,
+    53,
+    56
+  ],
+  "ready_count": 12,
+  "note": "Initial preview selection; source titles and credits not comprehensively checked against another edition."
+}

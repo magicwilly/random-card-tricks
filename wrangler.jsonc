@@ -1,0 +1,20 @@
+{
+  "name": "random-card-tricks-preview",
+  "compatibility_date": "2026-10-15",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "main": "src/worker.js",
+  "routes": [
+    {
+      "pattern": "randomcardtricks.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.randomcardtricks.com",
+      "custom_domain": true
+    }
+  ]
+}
