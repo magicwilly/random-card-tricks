@@ -28,6 +28,7 @@ function updateKeepers() {
 }
 function render() {
  const t = current(); if(!t) return;
+ setCard((cursor+1)%52);
  $('reader').hidden=false; $('title').textContent=t.title;
  $('credit').textContent=t.author ? 'CREDITED TO '+t.author.toUpperCase() : (t.review_batch ? 'ORIGINATOR: SOURCE UNKNOWN' : 'A LITTLE SOMETHING FROM THE ARCHIVE');
  $('pages').textContent=Number.isInteger(t.page_start)&&Number.isInteger(t.page_end)?'PDF '+(t.page_start===t.page_end?'page '+t.page_start:'pages '+t.page_start+'–'+t.page_end):'Supplied PDF edition';
@@ -37,7 +38,7 @@ function render() {
  const priorNote=document.getElementById('editor-note');if(priorNote)priorNote.remove();if(t.editor_note){const note=document.createElement('p');note.id='editor-note';note.className='editor-note';note.textContent=t.editor_note;$('text').after(note);}
  $('back').disabled=cursor<1; $('prompt').hidden=true; updateKeepers();
  $('deal').innerHTML='Deal me another <span aria-hidden="true">↗</span>';
- $('title').focus({preventScroll:true}); $('reader').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+ $('title').focus({preventScroll:true}); scrollReader();
 }
 function deal() {
  if(cursor<history.length-1) {cursor++;render();return;}
@@ -50,5 +51,55 @@ $('keep').onclick=()=>{const t=current();if(!t)return;kept.has(t.id)?kept.delete
 function toggleSaved(open){$('saved-panel').hidden=!open;$('saved-toggle').setAttribute('aria-expanded',String(open));if(open)$('saved-panel').scrollIntoView({block:'start'});}
 $('saved-toggle').onclick=()=>toggleSaved($('saved-panel').hidden);$('close-saved').onclick=()=>{toggleSaved(false);$('saved-toggle').focus();};
 $('twist-button').onclick=()=>{let n;do{n=Math.floor(Math.random()*prompts.length);}while(n===lastPrompt);lastPrompt=n;$('prompt').textContent=prompts[n];$('prompt').hidden=false;};
+// Hero card: every deal turns over the next card in the deck, A♠ through K♦, then back to the Ace.
+const SUITS=[['♠',0],['♥',1],['♣',0],['♦',1]], RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+const PL=35, PC=50, PR=65;
+const PIPS={2:[[PC,19],[PC,81,1]],3:[[PC,19],[PC,50],[PC,81,1]],4:[[PL,19],[PR,19],[PL,81,1],[PR,81,1]]};
+PIPS[5]=[...PIPS[4],[PC,50]];
+PIPS[6]=[[PL,19],[PR,19],[PL,50],[PR,50],[PL,81,1],[PR,81,1]];
+PIPS[7]=[...PIPS[6],[PC,34.5]];
+PIPS[8]=[...PIPS[7],[PC,65.5,1]];
+PIPS[9]=[[PL,19],[PR,19],[PL,39.7],[PR,39.7],[PL,60.3,1],[PR,60.3,1],[PL,81,1],[PR,81,1],[PC,50]];
+PIPS[10]=[[PL,19],[PR,19],[PL,39.7],[PR,39.7],[PL,60.3,1],[PR,60.3,1],[PL,81,1],[PR,81,1],[PC,29.5],[PC,70.5,1]];
+const motionOK=()=>!matchMedia('(prefers-reduced-motion: reduce)').matches;
+let shownCard=0, cardAnim=null, cardSwap=0;
+function cardEl(tag,cls,html){const e=document.createElement(tag);e.className=cls;e.innerHTML=html;return e;}
+function paintCard(i){
+ const front=$('card-front'); if(!front) return;
+ const rank=RANKS[i%13], [mark,red]=SUITS[Math.floor(i/13)%4], suit=mark+'︎';
+ front.classList.toggle('red',!!red);
+ const kids=[cardEl('div','corner',rank+'<br>'+suit)];
+ if(rank==='A') kids.push(cardEl('div','suit',suit));
+ else if(PIPS[rank]) for(const [x,y,down] of PIPS[rank]){const p=cardEl('span','pip'+(down?' down':''),suit);p.style.left=x+'%';p.style.top=y+'%';kids.push(p);}
+ else kids.push(cardEl('div','court',rank+'<small>'+suit+'</small>'));
+ kids.push(cardEl('div','corner bottom',rank+'<br>'+suit));
+ front.replaceChildren(...kids);
+}
+function setCard(i){
+ if(i===shownCard) return;
+ const dir=((i-shownCard+52)%52)<=26?1:-1; // going back turns the card the other way
+ shownCard=i;
+ const flip=$('flip');
+ if(cardAnim){cardAnim.cancel();clearTimeout(cardSwap);}
+ if(!flip||!flip.animate||!motionOK()){paintCard(i);return;}
+ flip.style.animation='none';
+ cardAnim=flip.animate([
+  {transform:'translateY(0) rotateY(0deg) scale(1)'},
+  {transform:'translateY(-18px) rotateY('+180*dir+'deg) scale(1.06)',offset:.5},
+  {transform:'translateY(0) rotateY('+360*dir+'deg) scale(1)'}
+ ],{duration:900,easing:'cubic-bezier(.45,.05,.3,1)'});
+ cardSwap=setTimeout(()=>paintCard(i),450); // swap the face while its back is showing
+ const nudge=(sel,a,b,delay)=>{const e=document.querySelector(sel);if(e)e.animate([{transform:a},{transform:b},{transform:a}],{duration:700,delay,easing:'ease-in-out'});};
+ nudge('.backcard','rotate(-20deg) translate(-40px,-4px)','rotate(-24deg) translate(-46px,-2px)',0);
+ nudge('.midcard','rotate(-4deg)','rotate(-7deg) translateY(-4px)',60);
+ const spark=document.querySelector('.spark');
+ if(spark){spark.style.animation='none';spark.animate([{transform:'scale(1) rotate(0deg)'},{transform:'scale(1.4) rotate(100deg)',offset:.45},{transform:'scale(1) rotate(180deg)'}],{duration:850,easing:'cubic-bezier(.3,.7,.3,1)'});}
+}
+// When the cards are on screen, hold the scroll a beat so the flip is seen before the trick opens.
+function scrollReader(){
+ const go=()=>$('reader').scrollIntoView({behavior:motionOK()?'smooth':'instant',block:'start'});
+ const art=document.querySelector('.art'), r=art&&art.getBoundingClientRect();
+ if(motionOK()&&r&&r.height&&r.bottom>0&&r.top<innerHeight) setTimeout(go,650); else go();
+}
 async function boot(){try{const r=await fetch('tricks.json');if(!r.ok)throw Error();data=await r.json();if(!Array.isArray(data)||!data.length)throw Error();kept=new Set([...kept].filter(id=>data.some(t=>t.id===id)));updateKeepers();$('deal').disabled=false;$('deal').innerHTML='Deal me something <span aria-hidden="true">↗</span>';}catch{$('status').textContent='The deck didn’t arrive. Reload the page to try again.';$('deal').textContent='Reload to try again';$('deal').disabled=false;$('deal').onclick=()=>location.reload();}}
 boot();
