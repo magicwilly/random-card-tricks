@@ -17,3 +17,7 @@ Live domain: https://randomcardtricks.com (registered with Cloudflare for one ye
 Batch 04 reviews 12 more records and supplies 13 tricks after splitting two compound records; Backs Up is held for method/wording verification. Total reviewed records: 48; pending: 304.
 
 The initial pass now covers all 352 original records. See review/CLEANUP-STATUS.md for counts, method, limits and the local review queue. No source PDFs are hosted publicly.
+
+## Deploys
+
+The `random-card-tricks-preview` Worker is connected to this repo through Cloudflare Workers Builds. Every push to `main` runs `npx wrangler deploy`, which publishes `public/` with the redirects in `src/worker.js`. The top-level `index.html`, `script.js` and `tricks.json` are the original files and are not served.
