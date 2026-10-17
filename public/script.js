@@ -28,7 +28,7 @@ function updateKeepers() {
 }
 function render() {
  const t = current(); if(!t) return;
- setCard((cursor+1)%52);
+ const hold=scrollHold(); setCard((cursor+1)%52,hold);
  $('reader').hidden=false; $('title').textContent=t.title;
  $('credit').textContent=t.author ? 'CREDITED TO '+t.author.toUpperCase() : (t.review_batch ? 'ORIGINATOR: SOURCE UNKNOWN' : 'A LITTLE SOMETHING FROM THE ARCHIVE');
  $('pages').textContent=Number.isInteger(t.page_start)&&Number.isInteger(t.page_end)?'PDF '+(t.page_start===t.page_end?'page '+t.page_start:'pages '+t.page_start+'–'+t.page_end):'Supplied PDF edition';
@@ -38,7 +38,7 @@ function render() {
  const priorNote=document.getElementById('editor-note');if(priorNote)priorNote.remove();if(t.editor_note){const note=document.createElement('p');note.id='editor-note';note.className='editor-note';note.textContent=t.editor_note;$('text').after(note);}
  $('back').disabled=cursor<1; $('prompt').hidden=true; updateKeepers();
  $('deal').innerHTML='Deal me another <span aria-hidden="true">↗</span>';
- $('title').focus({preventScroll:true}); scrollReader();
+ $('title').focus({preventScroll:true}); scrollReader(hold);
 }
 function deal() {
  if(cursor<history.length-1) {cursor++;render();return;}
@@ -75,10 +75,11 @@ function paintCard(i){
  kids.push(cardEl('div','corner bottom',rank+'<br>'+suit));
  front.replaceChildren(...kids);
 }
-function setCard(i){
+function setCard(i,hold=0){
  if(i===shownCard) return;
  const dir=((i-shownCard+52)%52)<=26?1:-1; // going back turns the card the other way
  shownCard=i;
+ flipMini('mini-head',i,dir,hold+300); // after the page settles on the trick
  const flip=$('flip');
  if(cardAnim){cardAnim.cancel();clearTimeout(cardSwap);}
  if(!flip||!flip.animate||!motionOK()){paintCard(i);return;}
@@ -95,11 +96,26 @@ function setCard(i){
  const spark=document.querySelector('.spark');
  if(spark){spark.style.animation='none';spark.animate([{transform:'scale(1) rotate(0deg)'},{transform:'scale(1.4) rotate(100deg)',offset:.45},{transform:'scale(1) rotate(180deg)'}],{duration:850,easing:'cubic-bezier(.3,.7,.3,1)'});}
 }
+function cardLabel(i){return {rank:RANKS[i%13],suit:SUITS[Math.floor(i/13)%4][0]+'︎',red:!!SUITS[Math.floor(i/13)%4][1]};}
+function paintMini(box,i){const f=box.querySelector('.mini-front'),c=cardLabel(i);f.classList.toggle('red',c.red);f.innerHTML='<b>'+c.rank+'</b><i>'+c.suit+'</i>';}
+const miniAnims={};
+function flipMini(id,i,dir,delay){
+ const box=$(id); if(!box) return;
+ const inner=box.querySelector('.mini-in');
+ if(miniAnims[id]){miniAnims[id].a.cancel();clearTimeout(miniAnims[id].t);}
+ if(!inner.animate||!motionOK()){paintMini(box,i);return;}
+ const a=inner.animate([{transform:'rotateY(0deg) scale(1)'},{transform:'rotateY('+180*dir+'deg) scale(1.15)',offset:.5},{transform:'rotateY('+360*dir+'deg) scale(1)'}],{duration:700,delay,easing:'cubic-bezier(.45,.05,.3,1)'});
+ miniAnims[id]={a,t:setTimeout(()=>paintMini(box,i),delay+350)};
+}
 // When the cards are on screen, hold the scroll a beat so the flip is seen before the trick opens.
-function scrollReader(){
- const go=()=>$('reader').scrollIntoView({behavior:motionOK()?'smooth':'instant',block:'start'});
+function scrollHold(){
  const art=document.querySelector('.art'), r=art&&art.getBoundingClientRect();
- if(motionOK()&&r&&r.height&&r.bottom>0&&r.top<innerHeight) setTimeout(go,650); else go();
+ const artVisible=r&&r.height&&r.bottom>0&&r.top<innerHeight;
+ return motionOK()&&artVisible?650:0;
+}
+function scrollReader(hold){
+ const go=()=>$('reader').scrollIntoView({behavior:motionOK()?'smooth':'instant',block:'start'});
+ hold?setTimeout(go,hold):go();
 }
 async function boot(){try{const r=await fetch('tricks.json');if(!r.ok)throw Error();data=await r.json();if(!Array.isArray(data)||!data.length)throw Error();kept=new Set([...kept].filter(id=>data.some(t=>t.id===id)));updateKeepers();$('deal').disabled=false;$('deal').innerHTML='Deal me something <span aria-hidden="true">↗</span>';}catch{$('status').textContent='The deck didn’t arrive. Reload the page to try again.';$('deal').textContent='Reload to try again';$('deal').disabled=false;$('deal').onclick=()=>location.reload();}}
 boot();
