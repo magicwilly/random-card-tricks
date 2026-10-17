@@ -28,7 +28,7 @@ function updateKeepers() {
 }
 function render() {
  const t = current(); if(!t) return;
- const hold=scrollHold(); setCard((cursor+1)%52,hold);
+ const hold=scrollHold(); setCard(cursor%52,hold);
  $('reader').hidden=false; $('title').textContent=t.title;
  $('credit').textContent=t.author ? 'CREDITED TO '+t.author.toUpperCase() : (t.review_batch ? 'ORIGINATOR: SOURCE UNKNOWN' : 'A LITTLE SOMETHING FROM THE ARCHIVE');
  $('pages').textContent=Number.isInteger(t.page_start)&&Number.isInteger(t.page_end)?'PDF '+(t.page_start===t.page_end?'page '+t.page_start:'pages '+t.page_start+'–'+t.page_end):'Supplied PDF edition';
@@ -51,7 +51,7 @@ $('keep').onclick=()=>{const t=current();if(!t)return;kept.has(t.id)?kept.delete
 function toggleSaved(open){$('saved-panel').hidden=!open;$('saved-toggle').setAttribute('aria-expanded',String(open));if(open)$('saved-panel').scrollIntoView({block:'start'});}
 $('saved-toggle').onclick=()=>toggleSaved($('saved-panel').hidden);$('close-saved').onclick=()=>{toggleSaved(false);$('saved-toggle').focus();};
 $('twist-button').onclick=()=>{let n;do{n=Math.floor(Math.random()*prompts.length);}while(n===lastPrompt);lastPrompt=n;$('prompt').textContent=prompts[n];$('prompt').hidden=false;};
-// Hero card: every deal turns over the next card in the deck, A♠ through K♦, then back to the Ace.
+// Hero card: the Joker opens, then every deal turns over the next card, A♠ through K♦, then back to the Ace.
 const SUITS=[['♠',0],['♥',1],['♣',0],['♦',1]], RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const PL=35, PC=50, PR=65;
 const PIPS={2:[[PC,19],[PC,81,1]],3:[[PC,19],[PC,50],[PC,81,1]],4:[[PL,19],[PR,19],[PL,81,1],[PR,81,1]]};
@@ -62,10 +62,11 @@ PIPS[8]=[...PIPS[7],[PC,65.5,1]];
 PIPS[9]=[[PL,19],[PR,19],[PL,39.7],[PR,39.7],[PL,60.3,1],[PR,60.3,1],[PL,81,1],[PR,81,1],[PC,50]];
 PIPS[10]=[[PL,19],[PR,19],[PL,39.7],[PR,39.7],[PL,60.3,1],[PR,60.3,1],[PL,81,1],[PR,81,1],[PC,29.5],[PC,70.5,1]];
 const motionOK=()=>!matchMedia('(prefers-reduced-motion: reduce)').matches;
-let shownCard=0, cardAnim=null, cardSwap=0;
+let shownCard=-1, cardAnim=null, cardSwap=0;
 function cardEl(tag,cls,html){const e=document.createElement(tag);e.className=cls;e.innerHTML=html;return e;}
 function paintCard(i){
  const front=$('card-front'); if(!front) return;
+ if(i<0){front.classList.remove('red');front.innerHTML='<div class="corner jk">J<br>O<br>K<br>E<br>R</div><div class="joker"><span class="jk-disc">★\uFE0E</span><span class="jk-word">JOKER</span></div><div class="corner bottom jk">J<br>O<br>K<br>E<br>R</div>';return;}
  const rank=RANKS[i%13], [mark,red]=SUITS[Math.floor(i/13)%4], suit=mark+'︎';
  front.classList.toggle('red',!!red);
  const kids=[cardEl('div','corner',rank+'<br>'+suit)];
@@ -97,7 +98,7 @@ function setCard(i,hold=0){
  if(spark){spark.style.animation='none';spark.animate([{transform:'scale(1) rotate(0deg)'},{transform:'scale(1.4) rotate(100deg)',offset:.45},{transform:'scale(1) rotate(180deg)'}],{duration:850,easing:'cubic-bezier(.3,.7,.3,1)'});}
 }
 function cardLabel(i){return {rank:RANKS[i%13],suit:SUITS[Math.floor(i/13)%4][0]+'︎',red:!!SUITS[Math.floor(i/13)%4][1]};}
-function paintMini(box,i){const f=box.querySelector('.mini-front'),c=cardLabel(i);f.classList.toggle('red',c.red);f.innerHTML='<b>'+c.rank+'</b><i>'+c.suit+'</i>';}
+function paintMini(box,i){const f=box.querySelector('.mini-front');if(i<0){f.classList.remove('red');f.innerHTML='<i>★</i>';return;}const c=cardLabel(i);f.classList.toggle('red',c.red);f.innerHTML='<b>'+c.rank+'</b><i>'+c.suit+'</i>';}
 const miniAnims={};
 function flipMini(id,i,dir,delay){
  const box=$(id); if(!box) return;
